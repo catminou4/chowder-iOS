@@ -17,8 +17,8 @@ struct ConnectionConfig {
     }
 
     var token: String {
-        get { KeychainService.load(key: Self.tokenKeychainKey) ?? "" }
-        set { KeychainService.save(key: Self.tokenKeychainKey, value: newValue) }
+        get { UserDefaults.standard.string(forKey: Self.tokenKeychainKey) ?? "" }
+        set { UserDefaults.standard.set(newValue, forKey: Self.tokenKeychainKey) }
     }
 
     var isConfigured: Bool {
